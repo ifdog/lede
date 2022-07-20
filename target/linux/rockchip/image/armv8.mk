@@ -71,6 +71,16 @@ define Device/friendlyarm_nanopi-r4se
 endef
 TARGET_DEVICES += friendlyarm_nanopi-r4se
 
+define Device/friendlyarm_nanopi-r5s
+  DEVICE_VENDOR := FriendlyARM
+  DEVICE_MODEL := NanoPi R5S
+  SOC := rk3568
+  UBOOT_DEVICE_NAME := nanopi-r4s-rk3568
+  IMAGE/sysupgrade.img.gz := boot-common | boot-script nanopi-r5s | pine64-bin | gzip | append-metadata
+  DEVICE_PACKAGES := kmod-r8125 -urngd
+endef
+TARGET_DEVICES += friendlyarm_nanopi-r5s
+
 define Device/pine64_rockpro64
   DEVICE_VENDOR := Pine64
   DEVICE_MODEL := RockPro64
